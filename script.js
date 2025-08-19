@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgerBtn.addEventListener("click", () => {
         navLinks.classList.toggle("show");
         menuTitle.classList.toggle("show");
-        market.style.display = "none";
+        market.classList.toggle("hide");
 
         const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
         hamburgerBtn.setAttribute("aria-expanded", !expanded);
@@ -52,23 +52,38 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", () => {
             navLinks.classList.remove("show");
             menuTitle.classList.remove("show");
+            market.classList.remove("hide");
             hamburgerBtn.setAttribute("aria-expanded", "false");
         });
     });
 
     /* theme */
+
     const toggleBtn = document.getElementById('theme-toggle');
     const portada = document.getElementById("portada");
     const separadores = document.querySelectorAll(".separador");
     const toTop = document.getElementById("to-top");
 
     // Restaurar tema guardado
+
+    const prefersScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        portada.classList.add('dark-theme');
-        toTop.classList.add('dark');
-        separadores.forEach(s => s.classList.add("dark"));
+
+    if (savedTheme) {
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            portada.classList.add('dark-theme');
+            toTop.classList.add('dark');
+            separadores.forEach(s => s.classList.add("dark"));
+        }
+    } else {//intentar manejar los temas, completamente por variable de body.dark
+        if (prefersScheme) {
+            localStorage.setItem('theme', 'dark');
+            document.body.classList.add('dark-theme');
+            portada.classList.add('dark-theme');
+            toTop.classList.add('dark');
+            separadores.forEach(s => s.classList.add("dark"));
+        }
     }
 
     toggleBtn.addEventListener('click', () => {
