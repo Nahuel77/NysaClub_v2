@@ -166,7 +166,7 @@ nav ul li a:hover {
   transition: .8s ease-in-out;
 }
 
-.market.hide{
+.market.hide {
   display: none;
 }
 
@@ -498,7 +498,11 @@ footer {
 
 @media (max-width: 768px) {
 
-  body.dark-theme{
+  body {
+    --shadow: #fff;
+  }
+
+  body.dark-theme {
     --shadow: #000;
     /* --nysa-title: ; */
   }
@@ -548,29 +552,31 @@ footer {
     right: .5rem;
   }
 
-  #carrusel{
+  #carrusel {
     filter: drop-shadow(0 0 5px var(--shadow));
   }
-  
-  .Nysa-Title{
-    text-shadow: 2px 2px 3px black;
-    filter: drop-shadow(0 0 5px black);
-    background: black;
+
+  .Nysa-Title {
+    text-shadow: 2px 2px 3px var(--shadow);
+    filter: drop-shadow(0 0 5px var(--shadow));
+    background: var(--shadow);
     -webkit-background-clip: text;
     -webkit-text-stroke: 8px transparent;
     -moz-background-clip: text;
     -moz-text-stroke: 8px transparent;
   }
-  
-  .Nysa-Club{
-    filter: drop-shadow(0 0 5px black);
-    text-shadow: 2px 2px 3px black;
-    background: black;
+
+  .Nysa-Club {
+    filter: drop-shadow(0 0 5px var(--shadow));
+    text-shadow: 2px 2px 3px var(--shadow);
+    background: var(--shadow);
     font-size: 1.8rem;
     -webkit-background-clip: text;
     -webkit-text-stroke: 8px transparent;
     -moz-background-clip: text;
     -moz-text-stroke: 8px transparent;
+    transition: 1s ease-in-out;
+
   }
 
   .theme-toggle {
@@ -599,4 +605,3 @@ footer {
     flex-direction: column;
   }
 }
-
