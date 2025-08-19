@@ -560,10 +560,6 @@ footer {
     right: .5rem;
   }
 
-  #carrusel {
-    /* filter: drop-shadow(0 0 5px var(--shadow)); */
-  }
-
   .Nysa-Title {
     text-shadow: 2px 2px 3px var(--shadow);
     filter: drop-shadow(0 0 5px var(--shadow));
@@ -584,6 +580,7 @@ footer {
     -moz-background-clip: text;
     -moz-text-stroke: 8px transparent;
     transition: 1s ease-in-out;
+    line-height: normal;
 
   }
 
