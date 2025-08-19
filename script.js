@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const portada = document.getElementById("portada");
     const separadores = document.querySelectorAll(".separador");
     const toTop = document.getElementById("to-top");
+    const menuBg = document.getElementById("menu-bg");
 
     // Restaurar tema guardado
 
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add('dark-theme');
             portada.classList.add('dark-theme');
             toTop.classList.add('dark');
+            menuBg.classList.add('dark');
             separadores.forEach(s => s.classList.add("dark"));
         }
     } else {//intentar manejar los temas, completamente por variable de body.dark
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add('dark-theme');
             portada.classList.add('dark-theme');
             toTop.classList.add('dark');
+            menuBg.classList.add('dark');
             separadores.forEach(s => s.classList.add("dark"));
         }
     }
@@ -94,11 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem('theme', 'dark');
             toTop.classList.add('dark');
             portada.classList.add('dark-theme');
+            menuBg.classList.add('dark');
         } else {
             separadores.forEach(s => s.classList.remove("dark"));
             localStorage.setItem('theme', 'light');
             portada.classList.remove('dark-theme');
             toTop.classList.remove('dark');
+            menuBg.classList.remove('dark');
         }
     });
 

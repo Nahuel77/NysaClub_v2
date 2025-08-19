@@ -240,13 +240,13 @@ nav ul li a:hover {
   font-size: 4rem;
   font-weight: 800;
   text-shadow: 0px 4px 6px var(--shadow);
-  transition: 1s ease-in-out;
   background: var(--shadow);
   -webkit-background-clip: text;
   -webkit-text-stroke: 8px transparent;
   -moz-background-clip: text;
   -moz-text-stroke: 8px transparent;
   padding: 0 1rem;
+  transition: 1s ease-in-out;
 }
 
 .Nysa-Club {
@@ -266,6 +266,8 @@ nav ul li a:hover {
   -webkit-text-stroke: 8px transparent;
   -moz-background-clip: text;
   -moz-text-stroke: 8px transparent;
+  transition: 1s ease-in-out;
+
 }
 
 .front {
@@ -504,6 +506,10 @@ footer {
   color: #b64d5b;
 }
 
+.menu-bg {
+  display: none;
+}
+
 @media (max-width: 768px) {
 
   body {
@@ -530,13 +536,25 @@ footer {
     max-height: 0;
     transition: max-height 0.3s ease;
     background-color: var(--bg-color);
-    background-image: url('./public/img/menu-bg.png');
-    background-size: calc(95vw);
-    background-position: center center;
-    background-repeat: no-repeat;
     height: 100vh;
     justify-content: center;
     align-items: center;
+  }
+
+  nav ul li {
+    z-index: 1;
+  }
+
+  .menu-bg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 20%;
+  }
+
+  .menu-bg.dark {
+    filter: invert(1) brightness(.2) sepia(1);
   }
 
   nav ul li a {
@@ -579,7 +597,6 @@ footer {
     -webkit-text-stroke: 8px transparent;
     -moz-background-clip: text;
     -moz-text-stroke: 8px transparent;
-    transition: 1s ease-in-out;
     line-height: normal;
 
   }
