@@ -500,7 +500,7 @@ footer {
 
   body.dark-theme{
     --shadow: #000;
-    --nysa-title: #b64d5b;
+    /* --nysa-title: ; */
   }
 
   nav {
@@ -553,13 +553,24 @@ footer {
   }
   
   .Nysa-Title{
-    text-shadow: 2px 2px 3px var(--shadow);
-    filter: drop-shadow(0 0 5px var(--shadow));
+    text-shadow: 2px 2px 3px black;
+    filter: drop-shadow(0 0 5px black);
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+    -moz-background-clip: text;
+    -moz-text-stroke: 8px transparent;
   }
   
   .Nysa-Club{
-    filter: drop-shadow(0 0 5px var(--shadow));
-    text-shadow: 2px 2px 3px var(--shadow);
+    filter: drop-shadow(0 0 5px black);
+    text-shadow: 2px 2px 3px black;
+    background: black;
+    font-size: 1.8rem;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+    -moz-background-clip: text;
+    -moz-text-stroke: 8px transparent;
   }
 
   .theme-toggle {
