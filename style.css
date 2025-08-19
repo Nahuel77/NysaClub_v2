@@ -550,7 +550,7 @@ footer {
     max-width: 100%;
     height: auto;
     position: absolute;
-    top: 20%;
+    top: 18%;
   }
 
   .menu-bg.dark {
@@ -625,5 +625,11 @@ footer {
 
   .contacto {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px){
+  .menu-bg{
+    height: 80%;
   }
 }
