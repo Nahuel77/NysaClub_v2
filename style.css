@@ -1,0 +1,586 @@
+:root {
+  --bg-color: #e6dcce;
+  --marca: #77151f;
+  --text-color: #222222;
+  --glass-color: #77151F;
+  --nysa-title: #77151F;
+  --section-title: #200205;
+  --card: #eeeeee;
+  --filter: none;
+  --shadow: #fff;
+}
+
+body.dark-theme {
+  --bg-color: #200205;
+  --marca: #77151f;
+  --text-color: #ad6e6e;
+  --glass-color: #5c501d;
+  --nysa-title: #5c501d;
+  --section-title: #5c501d;
+  --card: #4e0f15;
+  --filter: invert(1) brightness(.2) sepia(1);
+  --shadow: #000;
+}
+
+@font-face {
+  font-family: "Bosque";
+  src: url("./public/font/bosque/BOSQUE.ttf");
+}
+
+@font-face {
+  font-family: "Autumn";
+  src: url("./public/font/autumn_wind/Autumn Wind.ttf");
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 8rem black inset;
+  transition: 1s ease-in-out;
+}
+
+h1 {
+  font-family: "Bosque", serif;
+  line-height: 1;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Autumn", serif;
+  font-size: 4rem;
+  justify-self: center;
+  color: var(--section-title);
+  text-align: center;
+  line-height: 1;
+}
+
+a {
+  color: var(--link-color);
+  font-family: 'Bosque', serif;
+  text-decoration: none;
+}
+
+p {
+  font-family: "Bosque", serif;
+}
+
+.separador {
+  display: flex;
+  width: 15rem;
+  justify-self: center;
+  padding: 3rem;
+  transition: 1s ease-in-out;
+}
+
+.separador.dark {
+  filter: invert(1) brightness(.7);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/*nav*/
+nav {
+  position: fixed;
+  background-color: var(--marca);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  z-index: 2;
+  height: 2.5rem;
+  width: 100vw;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  font-size: 1.3rem;
+  text-shadow: 0px 4px 4px #000000;
+}
+
+nav ul li a:hover {
+  opacity: 0.8;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 5rem;
+  z-index: 1;
+}
+
+.menu-title {
+  display: none;
+}
+
+.menu-img {
+  width: 5rem;
+}
+
+.side-options {
+  position: absolute;
+  right: 2rem;
+  top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.market {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--glass-color);
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: .8s ease-in-out;
+}
+
+.market img {
+  width: 4rem;
+}
+
+.theme-toggle {
+  margin-left: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem;
+  background-image: url("./public/img/theme-bg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.wine-glass {
+  fill: var(--glass-color) !important;
+  transition: fill .5s ease-in-out;
+}
+
+.to-top {
+  display: flex;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  border-radius: 30%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(56, 56, 56, 0.473);
+  transition: 1s ease-in-out;
+}
+
+.to-top-img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.to-top.dark {
+  filter: invert(1) brightness(.7);
+}
+
+/*header*/
+.header {
+  background-image: url("./public/img/pattern.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 20rem;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 0rem;
+}
+
+.Nysa-Title {
+  font-family: "Bosque", serif;
+  color: var(--nysa-title);
+  font-size: 4rem;
+  font-weight: 800;
+  text-shadow: 0px 4px 6px var(--shadow);
+  transition: 1s ease-in-out;
+}
+
+.Nysa-Club {
+  font-family: "Bosque", serif;
+  text-align: center;
+  color: var(--nysa-title);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-shadow: 0px 4px 6px var(--shadow);
+  transition: 1s ease-in-out;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.front {
+  z-index: 1;
+}
+
+#carrusel {
+  position: relative;
+  width: 100%;
+  justify-items: center;
+  height: 3rem;
+  overflow: hidden;
+}
+
+.Nysa-Club {
+  text-align: center;
+  position: absolute;
+  opacity: 0;
+}
+
+.Nysa-Club.active {
+  opacity: 1;
+}
+
+.Nysa-Club.exit {
+  opacity: 0;
+}
+
+.laureles {
+  width: 15rem;
+}
+
+.portada {
+  position: absolute;
+  top: 2rem;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./public/img/portada_background.png");
+  background-position: center;
+  background-size: 70rem;
+  background-repeat: no-repeat;
+  transition: 1s ease-in-out;
+}
+
+.portada.dark-theme {
+  filter: var(--filter);
+}
+
+.title-section {
+  transition: 1s ease-in-out;
+  text-align: center;
+}
+
+/*quienes somos*/
+
+.quienes_content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-self: center;
+  max-width: 45rem;
+}
+
+.elegant-frame {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.nymphes_de_Nysa {
+  width: 20rem;
+  height: auto;
+}
+
+.quienes_text {
+  margin: .5rem 1rem;
+  width: auto;
+  color: var(--font-color);
+  font-size: 1.3rem;
+  -webkit-text-stroke: .5px var(--font-color);
+  font-style: normal;
+  font-weight: 100;
+  line-height: 2rem;
+  text-align: center;
+}
+
+/*Eventos*/
+.prox-eventos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventosContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease;
+  background-image: url("./public/img/ninfa_caratula.png");
+  background-size: calc(50%);
+  background-repeat: no-repeat;
+  background-color: var(--card);
+  transition: 1s ease-in-out;
+
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #d35400;
+}
+
+.card p {
+  margin: 8px 0;
+  color: var(--text-color);
+  transition: 1s ease-in-out;
+}
+
+.detalles {
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+/* Contacto */
+
+.contacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.contacto-info,
+.contacto-form {
+  flex-direction: column;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  color: var(--font-color);
+  font-family: "Bosque", serif;
+  -webkit-text-stroke: .3px var(--font-color);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  padding: .5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.city {
+  padding: .5rem;
+}
+
+.info-city {
+  line-height: 1;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-input {
+  height: 2.5rem;
+  width: 90%;
+  text-align: center;
+}
+
+.contaxt-text {
+  height: 10rem;
+  width: 90%;
+}
+
+.contact-input,
+.contaxt-text {
+  background-color: #CBCBCB;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.507) inset;
+  color: black;
+}
+
+.contact-btn {
+  height: 4rem;
+  border-radius: 5px;
+  background-color: #77151F;
+  cursor: pointer;
+  color: #EEE7DD;
+  width: 90%;
+}
+
+.contact-btn:hover {
+  background-color: rgb(143, 17, 29);
+}
+
+.contaxt-text,
+.contact-input,
+.contact-btn {
+  margin: .7rem;
+  font-family: "Inria Serif", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+footer {
+  background-color: var(--marca);
+  width: 100%;
+  height: 3.5rem;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.foot-info {
+  color: #200205;
+  font-family: "Bosque";
+}
+
+.foot-lnk {
+  color: #b64d5b;
+}
+
+@media (max-width: 768px) {
+
+  body.dark-theme{
+    --shadow: #000;
+    --nysa-title: #b64d5b;
+  }
+
+  nav {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  nav ul {
+    box-shadow: 0 0 8rem black inset;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    background-color: var(--bg-color);
+    background-image: url('./public/img/menu-bg.png');
+    background-size: calc(95vw);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li a {
+    color: var(--text-color);
+    text-shadow: none;
+  }
+
+  nav ul.show {
+    max-height: 100vh;
+  }
+
+  .hamburger {
+    position: absolute;
+    display: flex;
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .side-options {
+    top: 1rem;
+    right: .5rem;
+  }
+
+  #carrusel{
+    filter: drop-shadow(0 0 5px var(--shadow));
+  }
+  
+  .Nysa-Title{
+    text-shadow: 2px 2px 3px var(--shadow);
+    filter: drop-shadow(0 0 5px var(--shadow));
+  }
+  
+  .Nysa-Club{
+    filter: drop-shadow(0 0 5px var(--shadow));
+    text-shadow: 2px 2px 3px var(--shadow);
+  }
+
+  .theme-toggle {
+    z-index: 1.5;
+  }
+
+  .menu-title.show {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    margin: 0;
+    justify-self: center;
+    color: var(--text-color);
+    z-index: 1;
+    font-family: "Autumn", serif;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0px 8px 6px #00000086;
+  }
+
+  .portada {
+    display: none;
+  }
+
+  .contacto {
+    flex-direction: column;
+  }
+}

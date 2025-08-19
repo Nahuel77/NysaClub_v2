@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Disfruta de degustaciones de vinos, catas a ciegas y catas privadas guiadas. Venta de vinos exclusivos para verdaderos amantes del vino.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <title>Degustación de vinos y catas privadas | Venta de vinos exclusivos</title>
+    <script src="script.js" defer>
+
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#inicio">Quienes Somos</a></li>
+                <li><a href="#servicios">Próximos Eventos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false" role="button"
+                tabindex="0">
+                <img src="./public/img/menu_wax.png" alt="menu" class="menu-img">
+            </div>
+            <div>
+                <p class="menu-title" id="menu-title">Menu</p>
+            </div>
+            <div class="side-options">
+                <div class="market" id="market"><img src="./public/img/market.png" alt=""></div>
+                <div class="theme-toggle" id="theme-toggle">
+                    <svg height="2.5rem" width="2.5rem" viewBox="0 0 495.281 495.281"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path class="wine-glass" id="wine-glass" d="M264.082,433.09V263.641c79.75-9.133,136.491-75.908,136.491-152.08
+        c0-28.795-7.996-64.61-21.854-99.33C375.775,4.847,368.617,0,360.671,0H134.481
+        c-7.951,0-15.108,4.847-18.049,12.232C103.92,43.581,94.199,80.534,94.728,114.633
+        c1.54,75.125,57.814,140.143,136.323,148.913V433.09c-51.979,4.254-91.823,27.358-91.823,38.974
+        c0,12.834,48.501,23.217,108.341,23.217c59.839,0,108.345-10.383,108.345-23.217
+        C355.923,460.448,316.066,437.339,264.082,433.09z M143.823,33.021h207.502c10.361,28.255,16.227,56.47,16.227,78.541
+        c0,5.359-0.476,10.61-1.16,15.792c-10.324-2.573-21.025-2.913-32.504,1.173
+        c-29.977,10.673-49.411,17.509-79.909,5.549c-30.325-11.901-49.488-65.96-85.852-61.847
+        c-14.447,1.626-26.842,6.378-38.031,12.979C132.692,68.828,137.222,51.028,143.823,33.021z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+        <div id="hero">
+            <img class="laureles front" src="./public/img/nysa-wax.png" alt="nysa">
+            <div class="portada" id="portada">
+            </div>
+            <span class="Nysa-Title front">Nysa Club</span>
+            <div class="front" id="carrusel">
+                <h1 class="Nysa-Club">Degustación de vinos</h1>
+                <h2 class="Nysa-Club">Catas privadas</h2>
+                <h2 class="Nysa-Club">Venta de vinos exclusivos</h2>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="to-top" id="to-top"><img class="to-top-img" src="./public/img/top.png" alt="to top"></div>
+        <div><img class="separador" id="separador" src="./public/img/separator.png" alt="separador"></div>
+        <section>
+            <h2 class="title-section">Quienes Somos</h2>
+            <article>
+                <div class='quienes_content'>
+                    <p class="quienes_text">Experiencia | Catas Privadas | Eventos Sociales</p>
+                    <p class='quienes_text'>Somos un espacio dedicado a crear experiencias relacionadas al mundo del
+                        vino y las degustaciones. Buscamos que cada evento sea único, ofreciendo propuestas que unen
+                        naturaleza, cultura y expresiones artísticas.
+                    </p>
+                    <div class='elegant-frame'><img class='nymphes_de_Nysa' src="./public/img/elegant_frame.png"
+                            alt="frame" /></div>
+                </div>
+            </article>
+        </section>
+        <div><img class="separador" id="separador" src="./public/img/separator.png" alt="separador"></div>
+        <section class="prox-eventos">
+            <h2 class="title-section">Próximos Eventos</h2>
+            <div class="eventosContainer" id="eventosContainer"></div>
+        </section>
+        <div><img class="separador" id="separador" src="./public/img/separator.png" alt="separador"></div>
+        <section>
+            <h2 class="title-section">Contacto</h2>
+            <div class='contacto'>
+                <div class='contacto-info'>
+                    <p class="info">Luciana Ambrosio</p>
+                    <p class="info">Fundadora - Sommelier</p>
+                    <p class="info">Cel: +54 9 2236 81-4668</p>
+                    <p class="info">nysaclub@gmail.com</p>
+                    <div class='city'>
+                        <p class="info info-city">Mar del Plata</p>
+                        <p class="info info-city">Buenos Aires - Argentina</p>
+                    </div>
+                    <Redes />
+                </div>
+                <div class='contacto-form'>
+                    <form class='form-container' onSubmit={handleSubmit} action="contact">
+                        <input class='contact-input' type="text" placeholder='tu nombre' name="nombre" />
+                        <input class='contact-input' type="text" placeholder='tu email' name="email" />
+                        <textarea class='contaxt-text' name="mensaje"></textarea>
+                        <button class='contact-btn' type='submit'>Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div><img class="separador" id="separador" src="./public/img/separator.png" alt="separador"></div>
+        <footer>
+            <p class='foot-info'>Desarrollado por <a class='foot-lnk' href="https://nahuel77.github.io/"
+                    target="_blank">Nahuel Calcara</a></p>
+            <p class='foot-info'>© Nysa Club. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "tipo_evento": "música y vino",
+    "descripcion": "Una noche única con presentaciones en vivo y una selección especial de vinos locales.",
+    "detalles": {
+      "lugar": "Bodega Los Encantos, Mendoza",
+      "fecha": "2025-09-12",
+      "hora": "20:00"
+    }
+  },
+  {
+    "tipo_evento": "degustación",
+    "descripcion": "Prueba y aprende sobre una variedad de quesos artesanales y maridajes.",
+    "detalles": {
+      "lugar": "Centro Cultural Sabores del Mundo, Córdoba",
+      "fecha": "2025-09-20",
+      "hora": "18:30"
+    }
+  },
+  {
+    "tipo_evento": "cena",
+    "descripcion": "Cena gourmet de cuatro pasos elaborada por chefs invitados con ingredientes de estación.",
+    "detalles": {
+      "lugar": "Restaurante La Terraza, Buenos Aires",
+      "fecha": "2025-09-28",
+      "hora": "21:00"
+    }
+  },
+  {
+    "tipo_evento": "taller de maridaje",
+    "descripcion": "Un taller práctico donde aprenderás a combinar vinos con diferentes tipos de comidas para resaltar sus sabores.",
+    "detalles": {
+      "lugar": "Espacio Gourmet Los Andes, Mendoza",
+      "fecha": "2025-10-05",
+      "hora": "17:00"
+    }
+  }
+]
