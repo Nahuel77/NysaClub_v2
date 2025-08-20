@@ -332,6 +332,7 @@ nav ul li a:hover {
 .quienes_resume {
   color: var(--section-title);
   transition: 1s ease-in-out;
+  text-align: center;
 }
 
 .elegant-frame {
