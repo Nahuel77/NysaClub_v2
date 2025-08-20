@@ -1,18 +1,19 @@
-window.addEventListener("load", () => {
-    const container = document.getElementById('eventosContainer');
+document.addEventListener("DOMContentLoaded", async () => {
+    /** --------------------------
+     * 1. Eventos (fetch JSON)
+     ---------------------------*/
+    const container = document.getElementById("eventosContainer");
 
-    fetch('eventos.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar el archivo JSON");
-            }
-            return response.json();
-        })
-        .then(eventos => {
+    if (container) {
+        try {
+            const response = await fetch("eventos.json");
+            if (!response.ok) throw new Error("No se pudo cargar el archivo JSON");
+
+            const eventos = await response.json();
+
             eventos.forEach(evento => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-
+                const card = document.createElement("div");
+                card.className = "card";
                 card.innerHTML = `
                     <h2>${evento.tipo_evento}</h2>
                     <p>${evento.descripcion}</p>
@@ -22,111 +23,95 @@ window.addEventListener("load", () => {
                         <p><strong>Hora:</strong> ${evento.detalles.hora}</p>
                     </div>
                 `;
-
                 container.appendChild(card);
             });
-        })
-        .catch(error => {
+        } catch (error) {
             console.error("Error cargando eventos:", error);
-        });
+        }
+    }
 
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    /* nav burger icon */
+    /** --------------------------
+     * 2. Menú hamburguesa
+     ---------------------------*/
     const hamburgerBtn = document.getElementById("hamburger-btn");
     const navLinks = document.getElementById("nav-links");
     const menuTitle = document.getElementById("menu-title");
     const market = document.getElementById("market");
 
-    hamburgerBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-        menuTitle.classList.toggle("show");
-        market.classList.toggle("hide");
+    if (hamburgerBtn && navLinks && menuTitle && market) {
+        hamburgerBtn.addEventListener("click", () => {
+            const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
+            const newState = !expanded;
+            hamburgerBtn.setAttribute("aria-expanded", newState);
 
-        const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
-        hamburgerBtn.setAttribute("aria-expanded", !expanded);
-    });
-
-    navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("show");
-            menuTitle.classList.remove("show");
-            market.classList.remove("hide");
-            hamburgerBtn.setAttribute("aria-expanded", "false");
+            navLinks.classList.toggle("show", newState);
+            menuTitle.classList.toggle("show", newState);
+            market.classList.toggle("hide", newState);
         });
-    });
 
-    /* theme */
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburgerBtn.setAttribute("aria-expanded", "false");
+                navLinks.classList.remove("show");
+                menuTitle.classList.remove("show");
+                market.classList.remove("hide");
+            });
+        });
+    }
 
-    const toggleBtn = document.getElementById('theme-toggle');
+    /** --------------------------
+     * 3. Tema oscuro / claro
+     ---------------------------*/
+    const toggleBtn = document.getElementById("theme-toggle");
     const portada = document.getElementById("portada");
     const separadores = document.querySelectorAll(".separador");
     const toTop = document.getElementById("to-top");
     const menuBg = document.getElementById("menu-bg");
 
-    // Restaurar tema guardado
-
-    const prefersScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme) {
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            portada.classList.add('dark-theme');
-            toTop.classList.add('dark');
-            menuBg.classList.add('dark');
-            separadores.forEach(s => s.classList.add("dark"));
-        }
-    } else {//intentar manejar los temas, completamente por variable de body.dark
-        if (prefersScheme) {
-            localStorage.setItem('theme', 'dark');
-            document.body.classList.add('dark-theme');
-            portada.classList.add('dark-theme');
-            toTop.classList.add('dark');
-            menuBg.classList.add('dark');
-            separadores.forEach(s => s.classList.add("dark"));
-        }
+    function aplicarTema(dark) {
+        document.body.classList.toggle("dark-theme", dark);
+        portada?.classList.toggle("dark-theme", dark);
+        toTop?.classList.toggle("dark", dark);
+        menuBg?.classList.toggle("dark", dark);
+        separadores.forEach(s => s.classList.toggle("dark", dark));
     }
 
-    toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
+    if (toggleBtn) {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedTheme = localStorage.getItem("theme");
 
-        if (document.body.classList.contains('dark-theme')) {
-            separadores.forEach(s => s.classList.add("dark"));
-            localStorage.setItem('theme', 'dark');
-            toTop.classList.add('dark');
-            portada.classList.add('dark-theme');
-            menuBg.classList.add('dark');
+        if (savedTheme) {
+            aplicarTema(savedTheme === "dark");
         } else {
-            separadores.forEach(s => s.classList.remove("dark"));
-            localStorage.setItem('theme', 'light');
-            portada.classList.remove('dark-theme');
-            toTop.classList.remove('dark');
-            menuBg.classList.remove('dark');
+            aplicarTema(prefersDark);
+            localStorage.setItem("theme", prefersDark ? "dark" : "light");
         }
-    });
 
-    /** carrusel */
-    const frases = Array.from(document.querySelectorAll("#carrusel h1, #carrusel h2"));
-    if (!frases.length) return;
+        toggleBtn.addEventListener("click", () => {
+            const dark = !document.body.classList.contains("dark-theme");
+            aplicarTema(dark);
+            localStorage.setItem("theme", dark ? "dark" : "light");
+        });
+    }
 
-    let index = 0;
+    /** --------------------------
+     * 4. Carrusel frases
+     ---------------------------*/
+    const frases = [...document.querySelectorAll("#carrusel h1, #carrusel h2")];
+    if (frases.length) {
+        let index = 0;
 
-    requestAnimationFrame(() => {
-        frases[index].classList.add("active");
-    });
+        function mostrarSiguiente() {
+            frases.forEach(f => f.classList.remove("active", "exit"));
 
-    setInterval(() => {
-        const actual = frases[index];
-        actual.classList.remove("active");
-        actual.classList.add("exit");
+            frases[index].classList.add("exit");
+            index = (index + 1) % frases.length;
+            frases[index].classList.add("active");
 
-        index = (index + 1) % frases.length;
+            setTimeout(mostrarSiguiente, 3000);
+        }
 
-        const siguiente = frases[index];
-        siguiente.classList.remove("exit");
-
-        siguiente.classList.add("active");
-    }, 3000);
+        frases[0].classList.add("active");
+        setTimeout(mostrarSiguiente, 3000);
+    }
 });

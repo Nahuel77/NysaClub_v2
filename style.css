@@ -13,7 +13,7 @@
 body.dark-theme {
   --bg-color: #200205;
   --marca: #77151f;
-  --text-color: #ad6e6e;
+  --text-color: #d88484;
   --glass-color: #5c501d;
   --nysa-title: #5c501d;
   --section-title: #5c501d;
@@ -329,6 +329,11 @@ nav ul li a:hover {
   max-width: 45rem;
 }
 
+.quienes_resume {
+  color: var(--section-title);
+  transition: 1s ease-in-out;
+}
+
 .elegant-frame {
   margin: 1rem 1rem 0 1rem;
 }
@@ -547,7 +552,7 @@ footer {
 
   .menu-bg {
     display: block;
-    max-width: 100%;
+    max-width: 95%;
     height: auto;
     position: absolute;
     top: 18%;
@@ -628,8 +633,8 @@ footer {
   }
 }
 
-@media (max-width: 768px){
-  .menu-bg{
+@media (max-width: 768px) {
+  .menu-bg {
     height: 80%;
   }
 }
