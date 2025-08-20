@@ -517,6 +517,10 @@ footer {
 
 @media (max-width: 768px) {
 
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     --shadow: #fff;
   }
