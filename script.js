@@ -114,4 +114,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         frases[0].classList.add("active");
         setTimeout(mostrarSiguiente, 3000);
     }
+
+    /** --------------------------
+     * 5. To Top Button
+     ---------------------------*/
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 450) {
+            toTop.style.display = "flex";
+        } else {
+            toTop.style.display = "none";
+        }
+    });
+
+    toTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
 });

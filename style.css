@@ -193,11 +193,10 @@ nav ul li a:hover {
 }
 
 .to-top {
-  display: flex;
+  display: none;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  display: flex;
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
