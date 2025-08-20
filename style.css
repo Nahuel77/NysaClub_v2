@@ -181,7 +181,7 @@ nav ul li a:hover {
   cursor: pointer;
   display: inline-block;
   padding: 0.5rem;
-  background-image: url("./public/img/theme-bg.png");
+  background-image: url("./public/img/theme-bg.webp");
   background-size: contain;
   background-repeat: no-repeat;
   padding: 1rem;
@@ -219,7 +219,7 @@ nav ul li a:hover {
 
 /*header*/
 .header {
-  background-image: url("./public/img/pattern.png");
+  background-image: url("./public/img/pattern.webp");
   background-repeat: repeat;
   background-position: center;
   background-size: 20rem;
@@ -302,7 +302,7 @@ nav ul li a:hover {
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-image: url("./public/img/portada_background.png");
+  background-image: url("./public/img/portada_background.webp");
   background-position: center;
   background-size: 70rem;
   background-repeat: no-repeat;
@@ -377,7 +377,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   transition: transform 0.2s ease;
-  background-image: url("./public/img/ninfa_caratula.png");
+  background-image: url("./public/img/ninfa_caratula.webp");
   background-size: calc(50%);
   background-repeat: no-repeat;
   background-color: var(--card);
